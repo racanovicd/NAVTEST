@@ -1,0 +1,36 @@
+OBJECT Modification "User Setup"(Page 119)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=14-03-15;
+    Time=16:07:35;
+    Modified=Yes;
+    Version List=NAVW17.00,Exercise 1;
+  }
+  PROPERTIES
+  {
+    Target="User Setup"(Page 119);
+  }
+  CHANGES
+  {
+    { Insertion         ;InsertAfter=Control 3;
+                         ChangedElements=ControlCollection
+                         {
+                           { 5   ;2   ;Field     ;
+                                       SourceExpr="Example Enabled" }
+
+                         }
+                          }
+    { PropertyModification;
+                         Property=Version List;
+                         OriginalValue=NAVW17.00;
+                         ModifiedValue=NAVW17.00,Exercise 1 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

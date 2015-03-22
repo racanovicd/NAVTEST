@@ -1,0 +1,37 @@
+OBJECT Codeunit 50000 Example Enabled
+{
+  OBJECT-PROPERTIES
+  {
+    Date=14-03-15;
+    Time=16:13:13;
+    Modified=Yes;
+    Version List=Exercise 1;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+          END;
+
+  }
+  CODE
+  {
+
+    PROCEDURE CheckEnabled@2() : Boolean;
+    VAR
+      UserSetup@1000 : Record 91;
+      ExampleSetup@1001 : Record 50000;
+    BEGIN
+      IF USERID <> '' THEN
+        IF UserSetup.GET(USERID) THEN
+          IF UserSetup."Example Enabled" THEN
+            EXIT(TRUE);
+
+      ExampleSetup.GET;
+      EXIT(ExampleSetup."Example Enabled");
+    END;
+
+    BEGIN
+    END.
+  }
+}
+

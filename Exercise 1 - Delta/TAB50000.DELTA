@@ -1,0 +1,32 @@
+OBJECT Table 50000 Example Setup
+{
+  OBJECT-PROPERTIES
+  {
+    Date=14-03-15;
+    Time=15:58:27;
+    Modified=Yes;
+    Version List=Exercise 1;
+  }
+  PROPERTIES
+  {
+  }
+  FIELDS
+  {
+    { 1   ;   ;Primary Key         ;Code10        ;CaptionML=ENU=Primary Key }
+    { 2   ;   ;Example Enabled     ;Boolean       ;CaptionML=ENU=Example Enabled }
+  }
+  KEYS
+  {
+    {    ;Primary Key                             ;Clustered=Yes }
+  }
+  FIELDGROUPS
+  {
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

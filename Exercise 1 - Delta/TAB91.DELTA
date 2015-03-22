@@ -1,0 +1,34 @@
+OBJECT Modification "User Setup"(Table 91)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=14-03-15;
+    Time=16:06:59;
+    Modified=Yes;
+    Version List=NAVW17.00,Exercise 1;
+  }
+  PROPERTIES
+  {
+    Target="User Setup"(Table 91);
+  }
+  CHANGES
+  {
+    { Insertion         ;InsertAfter="Service Resp. Ctr. Filter"(Field 5900);
+                         ChangedElements=FieldCollection
+                         {
+                           { 50000;  ;Example Enabled     ;Boolean        }
+                         }
+                          }
+    { PropertyModification;
+                         Property=Version List;
+                         OriginalValue=NAVW17.00;
+                         ModifiedValue=NAVW17.00,Exercise 1 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

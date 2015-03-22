@@ -1,0 +1,68 @@
+OBJECT Modification "Company-Initialize"(Codeunit 2)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=14-03-15;
+    Time=16:06:34;
+    Modified=Yes;
+    Version List=NAVW18.00,Exercise 1;
+  }
+  PROPERTIES
+  {
+    Target="Company-Initialize"(Codeunit 2);
+  }
+  CHANGES
+  {
+    { CodeModification  ;Target=OnRun;
+                         OriginalCode=BEGIN
+                                        Window.OPEN(Text000);
+
+                                        InitSetupTables;
+                                        #4..14
+                                        ApplicationLaunchMgt.InsertStyleSheets;
+                                        InsertClientAddIns;
+                                        InitVATRegNrValidationSetup;
+
+                                        Window.CLOSE;
+
+                                        IF STRPOS(COMPANYNAME,Text093) = 1 THEN
+                                          EXIT;
+
+                                        COMMIT;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..17
+                                        InitExampleSetup;
+                                        #19..24
+                                      END;
+                                       }
+    { Insertion         ;InsertAfter=InsertBankDataConversionPmtType(PROCEDURE 20);
+                         ChangedElements=PROCEDURECollection
+                         {
+                           LOCAL PROCEDURE InitExampleSetup@23();
+                           VAR
+                             ExampleSetup@1000 : Record 50000;
+                           BEGIN
+                             WITH ExampleSetup DO
+                               IF NOT FINDFIRST THEN BEGIN
+                                 INIT;
+                                 INSERT;
+                               END;
+                           END;
+
+                         }
+                          }
+    { PropertyModification;
+                         Property=Version List;
+                         OriginalValue=NAVW18.00;
+                         ModifiedValue=NAVW18.00,Exercise 1 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+
